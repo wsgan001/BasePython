@@ -1,0 +1,13 @@
+
+
+1、创建迁移仓库
+python hello3.py db init  #这个命令会创建 migrations 文件夹，所有迁移脚本都存放其中
+
+2、创建迁移脚本
+upgrade()函数把迁移中的改动应用到数据库中，downgrade()函数则将改动删除
+
+手动创建: revision命令  #手动创建的迁移只是一个骨架，upgrade()和downgrade()函数都是空的，开发者要使用Alembic提供的Operations对象指令实现具体操作
+自动创建: python hello3.py db migrate -m "initial migration"  #自动创建的迁移不一定总是正确的，有可能会漏掉一些细节。自动生成迁移脚本后一定要进行检查
+
+3、更像数据库：把迁移应用到数据库中
+python hello3.py db upgrade

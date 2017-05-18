@@ -1,0 +1,19 @@
+
+
+1、Flask-Bootstrap基模板中定义的块
+块名                      说明
+---------------------------------------------------------
+doc                     整个HTML文档
+html_attribs            <html> 标签的属性
+html                    <html> 标签中的内容
+head                    <head> 标签中的内容
+title                   <title> 标签中的内容
+metas                   一组 <meta> 标签
+styles                  层叠样式表定义
+body_attribs           <body> 标签的属性
+body                    <body> 标签中的内容
+navbar                  用户定义的导航条
+content                 用户定义的页面内容
+scripts                 文档底部的 JavaScript 声明
+
+很多块都是Flask-Bootstrap自用的，如果直接重定义可能会导致一些问题。例如，Bootstrap所需的文件在styles和scripts块中声明。如果程序需要向已经有内容的块 中添加新内容，必须使用Jinja2提供的super()函数

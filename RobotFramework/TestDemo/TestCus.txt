@@ -1,0 +1,10 @@
+*** Settings ***
+Library           CustomLibrary
+
+*** Test Cases ***
+test1
+    runtest    #Runtest中定义的方法即是关键字
+    runtest2
+    testt3    aa    ss    dd
+    ${result}    testt5
+    log    ${result.arg}

@@ -1,0 +1,107 @@
+
+1、变量
+{{ name }}
+
+复杂的类型，例如列表、字典和对象：
+<p>A value from a dictionary: {{ mydict['key'] }}.</p>
+<p>A value from a list: {{ mylist[3] }}.</p>
+<p>A value from a list, with a variable index: {{ mylist[myintvar] }}.</p>
+<p>A value from an object's method: {{ myobj.somemethod() }}.</p>
+
+
+2、过滤器
+使用过滤器修改变量，过滤器名添加在变量名之后，中间使用竖线分隔
+Hello, {{ name|capitalize }}
+
+过滤器名         说明
+----------------------------------------------------------
+safe            渲染值时不转义（默认情况下，出于安全考虑，Jinja2会转义所有变量。例如如果一个变量的值为'<h1>Hello</h1>'，Jinja2会将其渲染成 '&lt;h1&gt;Hello&lt;/ h1&gt;'）
+
+capitalize      把值的首字母转换成大写，其他字母转换成小写
+lower           把值转换成小写形式
+upper           把值转换成大写形式
+title           把值中每个单词的首字母都转换成大写
+trim            把值的首尾空格去掉
+striptags       渲染之前把值中所有的HTML标签都删掉
+
+
+3、控制结构
+条件控制语句:
+{% if user %}
+    Hello, {{ user }}!
+{% else %}
+    Hello, Stranger!
+{% endif %}
+
+
+for循环:
+<ul>
+    {% for comment in comments %}
+        <li>{{ comment }}</li>
+    {% endfor %}
+</ul>
+
+
+宏(类似于Python代码中的函数):
+{% macro render_comment(comment) %}
+    <li>{{ comment }}</li>
+{% endmacro %}
+
+<ul>
+    {% for comment in comments %}
+        {{ render_comment(comment) }}
+    {% endfor %}
+</ul>
+为了重复使用宏，可以将其保存在单独的文件中，然后在需要使用的模板中导入:
+{% import 'macros.html' as macros %}
+<ul>
+    {% for comment in comments %}
+        {{ macros.render_comment(comment) }}
+    {% endfor %}
+</ul>
+
+
+模板包含:
+需要在多处重复使用的模板代码片段可以写入单独的文件，再包含在所有模板中，以避免重复:
+{% include 'common.html' %}
+
+
+模板继承：
+基模板（base.html）:
+<html>
+<head>
+    {% block head %}
+    <title>{% block title %}{% endblock %} - My Application</title>
+    {% endblock %}
+</head>
+<body>
+    {% block body %}
+    {% endblock %}
+</body>
+</html>
+
+衍生模板:
+{% extends "base.html" %}
+{% block title %}Index{% endblock %}
+{% block head %}
+    {{ super() }}
+    <style>
+    </style>
+{% endblock %}
+{% block body %}
+<h1>Hello, World!</h1>
+{% endblock %}
+
+说明：
+extends指令声明这个模板衍生自base.html
+block标签定义的元素可在衍生模板中修改
+super()获取原来的内容
+
+
+
+
+
+
+
+
+

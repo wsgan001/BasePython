@@ -1,0 +1,79 @@
+*** Settings ***
+Library           Screenshot
+Library           Collections
+Library           Selenium2Library
+Resource          业务关键字.txt
+
+*** Variables ***
+${hi}             欢迎第一次使用robot framework
+@{list1}          1    2    s    4    w    a    b
+...               c    d    e    df    sd    fgh    jjk
+...               # list demo
+
+*** Test Cases ***
+testcase1_中文
+    ${a}    catenate    SEPARATOR=---    QQQQQQQ    wwww    ssssssss    中文
+    log    ${a}
+    ${a}    create List    dddd    ggggg    hhhh
+    log many    ${a}
+    ${t}    get time
+    sleep    0.1
+    log    ${t}
+    ${b}    set variable    59
+    run keyword if    ${b}>=90    log    优秀
+    ...    ELSE IF    ${b}>=60    log    及格
+    ...    ELSE    log    不及格
+    : FOR    ${i}    IN RANGE    10
+    \    log    ${i}
+    ${d}    evaluate    random.randint(1000, 9999)    random    #调用python的random模块下的randint方法
+    log    ${d}
+    #    evaluate    os.system('python hello.py')    os    #执行python文件
+
+testcase2
+    import library    /Users/yzh/Code/StudyPython/RobotFramework/testrb.py    #导入标准和第三方模块或框架，之后就可以使用这个模块下的函数
+    ${a}    evaluate    int(23)
+    ${b}    evaluate    int(5)
+    ${he}    add    ${a}    ${b}
+    log    ${he}
+
+testcase3
+    take screenshot    #截图保存路径与日志路径一至
+
+testcase4
+    ${dict1}    create dictionary    key1    value1    key2    value2
+    log    ${dict1}
+    ${dict1}    create dictionary    a=123    b=222
+    log    ${dict1}
+    ${items}    get dictionary items    ${dict1}
+    log    ${items}
+    ${key}    get dictionary keys    ${dict1}
+    log    ${key}
+    ${value}    get dictionary values    ${dict1}
+    log    ${value}
+    ${v}    get from dictionary    ${dict1}    a    #获取字典中key对应的value
+    log    ${v}
+
+testcase5
+    [Tags]    重要    # \ \ 的
+    log    ${hi}
+    : FOR    ${n}    IN    @{list1}
+    \    log    ${n}
+
+testcase6
+    循环    20    #使用用户关键字
+    xh    5    #使用资源文件中的公共业务关键字
+
+testcase7
+    @{a}    Set Variable    3    2    1    #List变量的赋值：除了用Set Variable还可以用Create List
+    @{b}    Create List    1    2    3
+    @{c}    Create List    @{a}    @{b}    #二维list
+    Log Many    @{a}
+    Log Many    @{b}
+    log    ${a}    #List变量转换成Scalar
+    log    ${b}
+
+*** Keywords ***
+循环
+    [Arguments]    ${num}
+    : FOR    ${i}    IN RANGE    ${num}
+    \    log    ${i}

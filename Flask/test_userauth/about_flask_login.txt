@@ -1,0 +1,22 @@
+
+
+1、Flask-Login要求实现的用户方法
+方法                          说明
+----------------------------------------------------------------------------
+is_authenticated()            如果用户已经登录，必须返回True，否则返回False
+is_active()                   如果允许用户登录，必须返回True，否则返回False。如果要禁用账户，可以返回False
+is_anonymous()                对普通用户必须返回False
+get_id()                      必须返回用户的唯一标识符，使用Unicode编码字符串
+
+
+这4个方法可以在模型类中作为方法直接实现，不过还有一种更简单的替代方案。Flask-Login提供了一个UserMixin类，其中包含这些方法的默认实现，且能满足大多数需求
+
+
+2、登录模板auth/login.html文件中只需使用Flask-Bootstrap提供的wtf.quick_form()宏渲染表单即可
+
+
+3、base.html模板中的导航条实现：
+并根据当前用户的登录状态分别显示“Sign In”或“Sign Out”链接
+判断条件中的变量current_user由Flask-Login定义，值是当前登录的用户，且在视图函数和模板中自动可用。 这个方法可用来判断当前用户是否已经登录。
+（如果用户尚未登录，则是一个匿名用户代理对象。如果是匿名用户，is_authenticated()方法返回False）
+

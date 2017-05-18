@@ -1,0 +1,12 @@
+2016-03-04 18:20:12,233 - test_logging.py[line:7] - DEBUG - This is debug nnnnnn
+2016-03-04 18:20:12,233 - test_logging.py[line:8] - INFO - This is info message
+2016-03-04 18:20:12,233 - test_logging.py[line:9] - WARNING - This is warning mmmmmm
+2016-03-04 18:20:12,233 - test1.py[line:6] - DEBUG - This is debug message test1
+2016-03-04 18:20:12,233 - test1.py[line:7] - INFO - This is info message test1
+2016-03-04 18:20:12,233 - test1.py[line:8] - WARNING - This is warning message test1
+2016-03-04 18:21:40,184 - test_logging.py[line:7] - DEBUG - This is debug nnnnnn
+2016-03-04 18:21:40,184 - test_logging.py[line:8] - INFO - This is info message
+2016-03-04 18:21:40,184 - test_logging.py[line:9] - WARNING - This is warning mmmmmm
+2016-03-04 18:21:40,184 - test1.py[line:6] - DEBUG - This is debug message test1
+2016-03-04 18:21:40,184 - test1.py[line:7] - INFO - This is info message test1
+2016-03-04 18:21:40,184 - test1.py[line:8] - WARNING - This is warning message test1
