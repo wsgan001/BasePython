@@ -23,3 +23,9 @@ def end2():
 def test_masd_add():
     print('----')
     assert_equal(10, 10)
+
+
+"""
+nosetests -s test3_4
+nosetests -s test3_4:test_masd_add
+"""

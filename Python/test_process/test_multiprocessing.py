@@ -9,7 +9,9 @@ import os, time, random
 
 # 子进程要执行的代码
 def run_proc(name):
-    print('Run child process %s (%s)...' % (name, os.getpid()))
+    while True:
+        time.sleep(3)
+        print('Run child process %s (%s)...' % (name, os.getpid()))
 
 
 if __name__=='__main__':
@@ -17,12 +19,15 @@ if __name__=='__main__':
     print('Parent process %s.' % os.getpid())
     p = multiprocessing.Process(target=run_proc, args=('test',))
     print('Child process will start.')
+    #p.daemon = True
     p.start()
     print "p.pid:", p.pid
     print "p.name:", p.name
     print "p.is_alive:", p.is_alive()
     print "p.exitcode:", p.exitcode  #进程在运行时为None、如果为–N，表示被信号N结束
-    print "p.authkey:", p.authkey
-    p.join()
-    print('Child process end.')
+    print "p.authkey:", p.authkey   #认证key
+    #time.sleep(5)
+    # p.join()
+    # p.terminate()
+    print 'Child process end.'
 
