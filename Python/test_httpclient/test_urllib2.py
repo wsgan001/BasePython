@@ -53,7 +53,7 @@ values = {'name' : 'Michael Foord', 'location' : 'Northampton', 'language' : 'Py
 data = urllib.urlencode(values)  #urlencode不能直接处理unicode对象，所以如果是unicode需要由unicode转到utf8
 print data
 req = urllib2.Request(url, data)  #如果没有data需要发送可以为None   当请求含有data参数时HTTP的请求为POST   GET: req = urllib2.Request(url+data)
-#response = urllib2.urlopen(req)
+response = urllib2.urlopen(req)
 '''
 发送POST请求:
 POST /html/index.html HTTP/1.1

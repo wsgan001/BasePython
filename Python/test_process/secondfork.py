@@ -15,7 +15,7 @@ try:
         source = source - 1
 
     else: #父进程
-        time.sleep(30)
+        time.sleep(3)
         print "this is parent process."
         print 'forkn is',forkn
 
