@@ -95,4 +95,5 @@ del b
 
 '''
 “标记-清除”是为了解决循环引用的问题
+https://foofish.net/python-gc.html
 '''

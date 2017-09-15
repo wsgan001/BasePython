@@ -2,8 +2,8 @@
 #被测程序
 import random
 
-
 #不需要在代码中用import导入模块memory_profiler
+
 @profile
 def random_sort2(n):
     l = [random.random() for i in range(n)]
