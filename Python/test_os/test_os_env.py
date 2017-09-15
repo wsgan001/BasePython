@@ -5,7 +5,11 @@ import os
 
 var = 'test'
 os.environ['var_shell'] = var
-print os.system('echo $var_shell')
+#print os.system('echo $var_shell')
+
+#print os.system("ps -ef | grep heartbeat | grep -v grep | awk '{print $2}' | xargs kill -9")
+
+print os.environ["IFT_V2_CUSTOMLIB"]
 
 
 """

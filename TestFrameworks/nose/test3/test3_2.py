@@ -28,4 +28,9 @@ class的setup 、teardown的设置
 setup函数的取名可以是setup_class, setupClass, setUpClass, setupAll ,setUpAll中的一个
 teardown函数取名可以是teardown_class, teardownClass, tearDownClass, teardownAll ,tearDownAll中的一个
 测试类也可以继承unittest.TestCase
+
+nosetests -s test3_2
+nosetests -s test3_2:TestUM
+nosetests -s test3_2:TestUM.test_ints
+
 '''

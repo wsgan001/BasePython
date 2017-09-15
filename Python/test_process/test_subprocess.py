@@ -36,6 +36,9 @@ c2 = subprocess.check_output(['ping','-c', '2', 'www.baidu.org'])
 '''
 print('output:', c2)
 
+print c2.returncode
+
+print c2.output
 
 
 

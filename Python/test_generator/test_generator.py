@@ -5,18 +5,18 @@
 
 #创建生成器方式1：
 lst = [1,2,3,4,5,6]
-o = (x+1 for x in lst) #生成器表达式
+o = (x for x in lst) #生成器表达式
 
 print o
 
 print o.next()
 print o.next()
 print o.next()
-# print o.send(None)
-# print o.send(1)
-print o.next()
-print o.next()
-print o.next()
+# # print o.send(None)
+# # print o.send(1)
+# print o.next()
+# print o.next()
+# print o.next()
 
-o = (x+1 for x in lst)
-print o.next()
+# o = (x+1 for x in lst)
+# print o.next()
